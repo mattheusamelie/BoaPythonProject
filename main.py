@@ -40,3 +40,20 @@ def run():
         print('Draw!')
         
 run()
+
+def scores():
+    score=0
+    if player1_stat > player2_stat:
+        score1=score1+1
+    elif player1_stat < player2_stat:
+        score2=score2+1
+    else:
+        score1=score1+0
+        
+    field_names=['name','score']
+    data = [{'name':name1,'score':score1},{'name':name2, 'score':score2}]
+    with open ('scores.csv','w+') as csv_file:
+             spreadsheet =csv.DictWriter(csv_file, fieldnames=field_names)
+             spreadsheet.writer()
+             spreadsheet.writerows(data)
+             return 
